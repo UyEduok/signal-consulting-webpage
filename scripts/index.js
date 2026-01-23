@@ -73,8 +73,16 @@ function initActiveLinkAndDropdowns() {
 
   function normalizePath(path) {
     const clean = path.split("?")[0].split("#")[0];
-    return clean.substring(clean.lastIndexOf("/") + 1);
+
+    // remove trailing slashes so "/repo/" becomes "/repo"
+    const noTrailingSlash = clean.replace(/\/+$/, "");
+
+    const file = noTrailingSlash.substring(noTrailingSlash.lastIndexOf("/") + 1);
+
+    // if you're at a folder root, GitHub Pages serves index.html
+    return file === "" ? "index.html" : file;
   }
+
 
   function isServicesPage() {
     const currentFile = normalizePath(window.location.pathname);
@@ -115,6 +123,7 @@ function initActiveLinkAndDropdowns() {
       if (isServicesPage()) mobileServicesBtn.setAttribute("data-active", "true");
       else mobileServicesBtn.removeAttribute("data-active");
     }
+    console.log("pathname:", window.location.pathname, "currentFile:", currentFile);
   }
 
   setActiveLink();
