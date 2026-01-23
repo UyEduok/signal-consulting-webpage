@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+  <title>Signal Processing</title>
+  <link rel="stylesheet" href="stylesheet/stles.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <section class="navbar-section" id="navbarSection"></section>
+
+  <!-- Mobile Menu (Off-canvas) -->
+  <aside class="mobile-menu" id="mobileMenu">
+
+    <!-- Mobile menu header -->
+    <div class="mobile-menu-header">
+      <div class="mobile-logo">
+        <img class="mobile-logo-image" src="images/logo.png" alt="logo">
+      </div>
+      <button class="close-menu" id="closeMenu" aria-label="Close menu">✕</button>
+    </div>
+
+    <!-- Mobile menu links -->
+    <a href="home.html">Home</a>
+
+    <div class="mobile-services-dd" id="mobileServicesDD">
+      <button type="button" class="mobile-services-btn" id="mobileServicesBtn" aria-expanded="false">
+        Our Services
+      </button>
+
+      <div class="mobile-services-menu" id="mobileServicesMenu">
+        <a href="services.html#gravity">Gravity and Magnetic Interpretation</a>
+        <a href="services.html#gis">GIS and ArcGIS Processing, Visualization, and Analysis</a>
+        <a href="services.html#feasibility">Feasibility Studies</a>
+        <a href="services.html#training">Custom Training Courses</a>
+      </div>
+    </div>
+
+    <a href="consultant.html">Leadership</a>
+    <a href="contact.html">Contact Us</a>
+  </aside>
+
+  <!-- Page Content -->
+  <main class="content">
+
+
+    <section class="service-hero" aria-label="Service introduction">
+
+      <!-- Background image set in HTML -->
+      <div
+        class="service-hero-bg"
+        style="
+          background-image:
+            linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+            url('images/training.jpg');
+        ">
+      </div>
+
+      <div class="service-hero-overlay"></div>
+
+      <div class="service-hero-inner">
+        <div class="service-hero-content">
+          <h1 class="service-hero-title">Custom Training Courses</h1>
+
+          <p class="service-hero-subtitle">
+            We offer customized training in gravity and magnetic techniques 
+            to support practical learning and professional development.
+          </p>
+
+          <a class="service-hero-cta" href="contact.html#contact-form">
+            Request a Consultation
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- DETAILS SECTION (Off-white bg + white card) -->
+    <section class="service-details" id="service-details" aria-label="Service details">
+      <div class="service-details-inner">
+        <article class="service-card" aria-label="Service details card">
+          <h2 class="service-card-title">Service Overview</h2>
+
+          <p class="service-card-text">
+            We offer training courses in the use of gravity and magnetics.
+          </p>
+
+          <a class="service-card-link" href="contact.html#contactContent">
+            Discuss this service with us
+          </a>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <section class="footer" id="footer"></section>
+
+  </main>
+
+  <script src="scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <title>Signal Processing</title>
+    <link rel="stylesheet" href="stylesheet/stles.css" />
+</head>
+<body> 
+
+    <!-- Navbar -->
+   <section class="navbar-section" id="navbarSection"></section>
+
+
+    <!-- Page Content -->
+    <main class="content">
+
+        <section class="contact">
+            <!-- Top Image / Hero -->
+            <div class="contact-image">
+                <img class="contact-top-image" src="images/contact.jpg" alt="Contact Signal Consulting">
+            </div>
+
+            <!-- Contact Content -->
+            <div class="contact-content" id="contactContent">
+                <h1>Contact Us</h1>
+                <p class="contact-intro">
+                    You can reach us directly by phone or email, or send us a message using the form below.
+                </p>
+
+                <!-- Direct Contact -->
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span class="icon">📞</span>
+                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="icon">✉️</span>
+                        <a href="mailto:info@signalconsulting.com">info@signalconsulting.com</a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number <span class="optional">(optional)</span>
+                        </label>
+                        <input type="tel" name="phone" id="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <div id="contact-popup" class="contact-popup hidden">
+                        <p id="popup-message"></p>
+                        <button id="popup-close" type="button">Close</button>
+                    </div>
+
+
+                    <div class="g-recaptcha" data-sitekey="6Ld4d08sAAAAAH6fpe5TKGCPNNb-lNeebLZPqhyB"></div>
+
+
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+
+
+        <section class="footer" id="footer"></section>
+    </main>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script defer src="scripts/index.js"></script>
+
+
+</body>
+</html>
