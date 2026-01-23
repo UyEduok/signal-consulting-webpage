@@ -74,14 +74,15 @@ function initActiveLinkAndDropdowns() {
   function normalizePath(path) {
     const clean = path.split("?")[0].split("#")[0];
 
-    // remove trailing slashes so "/repo/" becomes "/repo"
+    // remove trailing slashes so "/signal-consulting-webpage/" becomes "/signal-consulting-webpage"
     const noTrailingSlash = clean.replace(/\/+$/, "");
 
     const file = noTrailingSlash.substring(noTrailingSlash.lastIndexOf("/") + 1);
 
-    // if you're at a folder root, GitHub Pages serves index.html
+    // GitHub Pages serves index.html at folder roots
     return file === "" ? "index.html" : file;
   }
+
 
 
   function isServicesPage() {
@@ -123,7 +124,6 @@ function initActiveLinkAndDropdowns() {
       if (isServicesPage()) mobileServicesBtn.setAttribute("data-active", "true");
       else mobileServicesBtn.removeAttribute("data-active");
     }
-    console.log("pathname:", window.location.pathname, "currentFile:", currentFile);
   }
 
   setActiveLink();
@@ -180,6 +180,26 @@ function initActiveLinkAndDropdowns() {
 
 
 /*=============================
+  mobile button toggler
+===============================*/
+function attachMobileMenuListeners() {
+  menuToggle = document.getElementById("menuToggle");
+  mobileMenu = document.getElementById("mobileMenu");
+  closeMenu = document.getElementById("closeMenu");
+
+  if (!menuToggle || !mobileMenu) return;
+
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+  });
+
+  closeMenu?.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+  });
+}
+
+
+/*=============================
   Load navbar to all html files
 ===============================*/
 async function loadNavPartial() {
@@ -193,6 +213,7 @@ async function loadNavPartial() {
 
     refreshNavRefs();
     attachServicesPointerListeners();
+    attachMobileMenuListeners();
 
     initActiveLinkAndDropdowns();
     applyNavStateFromScroll();
@@ -252,15 +273,7 @@ window.addEventListener("resize", () => {
   updateServicesPointer();
 });
 
-/* Mobile menu toggle */
-menuToggle?.addEventListener("click", () => {
-  mobileMenu?.classList.toggle("open");
-});
 
-/* Close button inside mobile menu */
-closeMenu?.addEventListener("click", () => {
-  mobileMenu?.classList.remove("open");
-});
 
 
 /* ===========================
@@ -269,6 +282,7 @@ closeMenu?.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", () => {
   loadNavPartial();
   loadFooterPartial()
+  console.log("pathname:", window.location.pathname, "currentFile:", currentFile);
 });
 
 
