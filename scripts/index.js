@@ -71,19 +71,20 @@ function initActiveLinkAndDropdowns() {
   const mobileServicesBtn = document.getElementById("mobileServicesBtn");
   const mobileServicesMenu = document.getElementById("mobileServicesMenu");
 
+
   function normalizePath(path) {
     const clean = path.split("?")[0].split("#")[0];
 
-    // remove trailing slashes so "/signal-consulting-webpage/" becomes "/signal-consulting-webpage"
-    const noTrailingSlash = clean.replace(/\/+$/, "");
+    // If the URL ends with "/", it's a directory. On GitHub Pages that means index.html.
+    if (clean.endsWith("/")) return "index.html";
 
-    const file = noTrailingSlash.substring(noTrailingSlash.lastIndexOf("/") + 1);
+    const last = clean.substring(clean.lastIndexOf("/") + 1);
 
-    // GitHub Pages serves index.html at folder roots
-    return file === "" ? "index.html" : file;
+    // Extra safety: if there's no dot, it's not a filename (likely a folder)
+    if (!last.includes(".")) return "index.html";
+
+    return last;
   }
-
-
 
   function isServicesPage() {
     const currentFile = normalizePath(window.location.pathname);
@@ -282,7 +283,7 @@ window.addEventListener("resize", () => {
 document.addEventListener("DOMContentLoaded", () => {
   loadNavPartial();
   loadFooterPartial()
-  console.log("pathname:", window.location.pathname, "currentFile:", currentFile);
+  console.log("pathname:", window.location.pathname);
 });
 
 
