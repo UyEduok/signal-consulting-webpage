@@ -242,6 +242,7 @@ body {
   font-size: 0.95rem;
   font-weight: 200;
   padding: 0.25rem 0;
+  opacity: 0.8;
   background: transparent;
   border: none;
   outline: none;
@@ -650,6 +651,11 @@ body {
     text-decoration: none;
     align-self: flex-start;
 }
+
+.service-mobile-overlay {
+  pointer-events: none;
+}
+
 
 
 
@@ -1116,10 +1122,6 @@ button:hover {
         color: #078af5; 
     }
 
-    .menu-toggle:hover{
-        color: #547997; 
-    }
-
     .navbar {
         background-color: #ffffff;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
@@ -1246,10 +1248,24 @@ button:hover {
     .service-hero-inner{
         padding: 6rem 0 4rem;
     }
+    .service-image-link {
+        display: block;
+        height: 100%;
+    }
     /* mobile responsiveness for each service page ends here */
 }
 
 
+/* Desktop: prevent the image link of the service section of the home page from acting clickable */
+@media (min-width: 769px) {
+  .service-image-link {
+    pointer-events: none;
+    cursor: default;
+  }
+  .service-image-link * {
+    pointer-events: none;
+  }
+}
 
 /* Resonsiveness for our services section for TABLET (one per row)*/
 @media (max-width: 1024px) {

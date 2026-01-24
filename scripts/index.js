@@ -482,6 +482,8 @@ document.addEventListener("DOMContentLoaded", () => {
           `Hi <strong>${templateParams.name}</strong>, your message has been received! We will get back to you shortly.`
         );
 
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
         form.reset();
         try {
           grecaptcha.reset();
