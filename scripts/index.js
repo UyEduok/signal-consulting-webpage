@@ -75,12 +75,12 @@ function initActiveLinkAndDropdowns() {
   function normalizePath(path) {
     const clean = path.split("?")[0].split("#")[0];
 
-    // If the URL ends with "/", it's a directory. On GitHub Pages that means index.html.
+
     if (clean.endsWith("/")) return "index.html";
 
     const last = clean.substring(clean.lastIndexOf("/") + 1);
 
-    // Extra safety: if there's no dot, it's not a filename (likely a folder)
+
     if (!last.includes(".")) return "index.html";
 
     return last;
