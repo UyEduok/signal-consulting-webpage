@@ -116,6 +116,18 @@ body {
     cursor: pointer;
 }
 
+.menu-toggle,
+.menu-toggle:hover,
+.menu-toggle:focus,
+.menu-toggle:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #078af5;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Mobile Menu */
 .mobile-menu {
     position: fixed;
@@ -221,6 +233,7 @@ body {
 .nav-links a.active:hover::after {
   background-color: #3b82f6;
 }
+
 
 
 
